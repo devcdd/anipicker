@@ -1,15 +1,13 @@
-export const Get = async <T>(
-  endpoint: string,
-  params: Record<string, string>,
-) => {
+export const Get = async (endpoint: string, params: Record<string, string>) => {
   try {
     const queryString = new URLSearchParams(params).toString()
-    return (await fetch(endpoint + queryString, {
+    return await fetch(endpoint + queryString, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        laftel: "Tejava",
       },
-    })) as T
+    })
   } catch (error) {
     console.log(
       "%cwrapper.ts:12 - %ce = ",
@@ -20,15 +18,16 @@ export const Get = async <T>(
   }
 }
 
-export const Post = async <T>(params: Record<string, never>) => {
+export const Post = async (endpoint: string, params: Record<string, never>) => {
   try {
-    return (await fetch(params.endpoint, {
+    return await fetch(endpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        laftel: "Tejava",
       },
       body: JSON.stringify(params.body),
-    })) as T
+    })
   } catch (error) {
     console.log(
       "%cwrapper.ts:29 - %ce = ",
