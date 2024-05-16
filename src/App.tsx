@@ -4,7 +4,7 @@ import { getAnimeCuration } from "../api/request.ts"
 import { useEffect } from "react"
 
 function App() {
-  const { data, error, isLoading } = useQuery({
+  const { data } = useQuery({
     queryKey: ["animeCuration"],
     queryFn: getAnimeCuration,
   })
@@ -18,7 +18,13 @@ function App() {
     )
   }, [data])
 
-  return <div className={"w-screen h-screen"}>hello</div>
+  return (
+    <div className={"w-screen h-screen"}>
+      {data?.map((section) => {
+        return <div>{section.name}</div>
+      })}
+    </div>
+  )
 }
 
 export default App
