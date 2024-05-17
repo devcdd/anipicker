@@ -2,6 +2,7 @@ import "./App.css"
 import { useQuery } from "@tanstack/react-query"
 import { getAnimeCuration } from "../api/request.ts"
 import { useEffect } from "react"
+import Curation from "./components/Curation.tsx"
 
 function App() {
   const { data } = useQuery({
@@ -19,11 +20,9 @@ function App() {
   }, [data])
 
   return (
-    <div className={"w-screen h-screen"}>
-      {data?.map((section) => {
-        return <div>{section.name}</div>
-      })}
-    </div>
+    <section className={"w-screen h-screen"}>
+      {data?.map((curation) => <Curation curation={curation} />)}
+    </section>
   )
 }
 

@@ -6,7 +6,7 @@ interface Image {
   crop_ratio: string
 }
 
-interface Anime {
+export interface Anime {
   id: number
   name: string
   images: Image[]
@@ -29,7 +29,7 @@ interface Anime {
   is_viewing: boolean
 }
 
-interface AnimeCuration {
+export interface AnimeCuration {
   id: string
   name: string
   item_list: Anime[]
